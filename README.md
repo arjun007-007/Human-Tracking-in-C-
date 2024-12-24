@@ -21,7 +21,7 @@
 ---
 
 ## Overview
-This C++ project provides a monocular human detection and tracking module suitable for an autonomous car’s perception system. The camera feed is analyzed to detect human obstacles, assign unique IDs, and track their position in both camera and robot reference frames. The module integrates CI/CD pipelines with unit test coverage reports.
+This project provides a monocular human detection and tracking module suitable for an autonomous car’s perception system. The camera feed is analyzed to detect human obstacles, assign unique IDs, and track their position in both camera and robot reference frames. The module integrates CI/CD pipelines with unit test coverage reports.
 
 ---
 
