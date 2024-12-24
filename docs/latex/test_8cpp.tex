@@ -1,0 +1,104 @@
+\hypertarget{test_8cpp}{}\doxysection{test/test.cpp File Reference}
+\label{test_8cpp}\index{test/test.cpp@{test/test.cpp}}
+
+
+Declares unit tests to be run and verified using Git\+Hub Actions It helpes in testing detection, displaying and tracking classes.  
+
+
+{\ttfamily \#include $<$gtest/gtest.\+h$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$tuple$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$opencv2/core.\+hpp$>$}\newline
+{\ttfamily \#include $<$opencv2/core/types.\+hpp$>$}\newline
+{\ttfamily \#include \char`\"{}detection.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}tracking.\+hpp\char`\"{}}\newline
+Include dependency graph for test.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{test_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{test_8cpp_a8c8682e3fc625a619254203dd9f10ea5}{TEST}} (unit\+\_\+test\+\_\+initialise\+\_\+\+Video\+Stream, this\+\_\+should\+\_\+pass)
+\begin{DoxyCompactList}\small\item\em static \mbox{\hyperlink{classTrackingClass}{Tracking\+Class}} object to be used in the unit test \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{test_8cpp_a8e8d4136cd49600aee3da6c1f8f40932}\label{test_8cpp_a8e8d4136cd49600aee3da6c1f8f40932}} 
+\mbox{\hyperlink{test_8cpp_a8e8d4136cd49600aee3da6c1f8f40932}{TEST}} (unit\+\_\+test\+\_\+detect\+\_\+faces, this\+\_\+should\+\_\+pass)
+\begin{DoxyCompactList}\small\item\em Construct a new TEST object. unit test for checking the detect\+Faces method of class \mbox{\hyperlink{classDetectionClass}{Detection\+Class}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{test_8cpp_ab668c3e3c851b081f44f63a112c8f6c4}\label{test_8cpp_ab668c3e3c851b081f44f63a112c8f6c4}} 
+\mbox{\hyperlink{test_8cpp_ab668c3e3c851b081f44f63a112c8f6c4}{TEST}} (unit\+\_\+test\+\_\+assign\+\_\+\+ID, this\+\_\+should\+\_\+pass)
+\begin{DoxyCompactList}\small\item\em Construct a new TEST object. unit test for checking the assign\+IDAnd\+Track method of class \mbox{\hyperlink{classTrackingClass}{Tracking\+Class}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{test_8cpp_a0b7769ff3fe9c92f271e6dfb73a9dc8f}\label{test_8cpp_a0b7769ff3fe9c92f271e6dfb73a9dc8f}} 
+\mbox{\hyperlink{test_8cpp_a0b7769ff3fe9c92f271e6dfb73a9dc8f}{TEST}} (unit\+\_\+test\+\_\+dist\+\_\+from\+\_\+camera, this\+\_\+should\+\_\+pass)
+\begin{DoxyCompactList}\small\item\em Construct a new TEST object. unit test for checking the dist\+From\+Camera method of class \mbox{\hyperlink{classTrackingClass}{Tracking\+Class}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{test_8cpp_a0ee6a248786da6e2a2cf3c9abbdfff99}\label{test_8cpp_a0ee6a248786da6e2a2cf3c9abbdfff99}} 
+\mbox{\hyperlink{test_8cpp_a0ee6a248786da6e2a2cf3c9abbdfff99}{TEST}} (unit\+\_\+test\+\_\+dist\+\_\+from\+\_\+car, this\+\_\+should\+\_\+pass)
+\begin{DoxyCompactList}\small\item\em Construct a new TEST object. unit test for checking the dist\+From\+Car method of class \mbox{\hyperlink{classTrackingClass}{Tracking\+Class}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{test_8cpp_aa6bd007b35cff90745a5f251b8674773}\label{test_8cpp_aa6bd007b35cff90745a5f251b8674773}} 
+\mbox{\hyperlink{test_8cpp_aa6bd007b35cff90745a5f251b8674773}{TEST}} (unit\+\_\+test\+\_\+find\+\_\+depth, this\+\_\+should\+\_\+pass)
+\begin{DoxyCompactList}\small\item\em Construct a new TEST object. unit test for checking the find\+Depth method of class \mbox{\hyperlink{classTrackingClass}{Tracking\+Class}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{test_8cpp_a7b2960809a6749a03041895b33489695}\label{test_8cpp_a7b2960809a6749a03041895b33489695}} 
+\mbox{\hyperlink{test_8cpp_a7b2960809a6749a03041895b33489695}{TEST}} (unit\+\_\+test\+\_\+assign\+\_\+\+ID\+\_\+2, this\+\_\+should\+\_\+pass)
+\begin{DoxyCompactList}\small\item\em Construct a new TEST object. unit test for checking the assign\+IDAnd\+Track method of class \mbox{\hyperlink{classTrackingClass}{Tracking\+Class}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{test_8cpp_a5cb80cca1792dd170bdb3950d378d360}\label{test_8cpp_a5cb80cca1792dd170bdb3950d378d360}} 
+\mbox{\hyperlink{test_8cpp_a5cb80cca1792dd170bdb3950d378d360}{TEST}} (unit\+\_\+test\+\_\+no\+\_\+face, this\+\_\+should\+\_\+pass)
+\begin{DoxyCompactList}\small\item\em Construct a new TEST object. unit test for checking the find\+Depth method of class \mbox{\hyperlink{classTrackingClass}{Tracking\+Class}}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{test_8cpp_a16c3c8392a00782c49e2e4e61b09a16c}\label{test_8cpp_a16c3c8392a00782c49e2e4e61b09a16c}} 
+\mbox{\hyperlink{test_8cpp_a16c3c8392a00782c49e2e4e61b09a16c}{TEST}} (unit\+\_\+test\+\_\+close\+\_\+face, this\+\_\+should\+\_\+pass)
+\begin{DoxyCompactList}\small\item\em Construct a new TEST object. unit test for checking the find\+Depth method of class \mbox{\hyperlink{classTrackingClass}{Tracking\+Class}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Declares unit tests to be run and verified using Git\+Hub Actions It helpes in testing detection, displaying and tracking classes. 
+
+\begin{DoxyAuthor}{Author}
+Lowell Lobo 
+
+Mayank Deshpande 
+
+Kautilya Chappidi 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2023-\/10-\/22
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{test_8cpp_a8c8682e3fc625a619254203dd9f10ea5}\label{test_8cpp_a8c8682e3fc625a619254203dd9f10ea5}} 
+\index{test.cpp@{test.cpp}!TEST@{TEST}}
+\index{TEST@{TEST}!test.cpp@{test.cpp}}
+\doxysubsubsection{\texorpdfstring{TEST()}{TEST()}}
+{\footnotesize\ttfamily TEST (\begin{DoxyParamCaption}\item[{unit\+\_\+test\+\_\+initialise\+\_\+\+Video\+Stream}]{,  }\item[{this\+\_\+should\+\_\+pass}]{ }\end{DoxyParamCaption})}
+
+
+
+static \mbox{\hyperlink{classTrackingClass}{Tracking\+Class}} object to be used in the unit test 
+
+Construct a new TEST object. unit test for checking the init\+Video\+Stream method of class \mbox{\hyperlink{classDetectionClass}{Detection\+Class}} 
+
+Definition at line 40 of file test.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{40                                                          \{}
+\DoxyCodeLine{41   \mbox{\hyperlink{classDetectionClass}{DetectionClass}} obj(}
+\DoxyCodeLine{42       \textcolor{stringliteral}{"{}../../models/res10\_300x300\_ssd\_iter\_140000\_fp16.caffemodel"{}},}
+\DoxyCodeLine{43       \textcolor{stringliteral}{"{}../../models/deploy.prototxt"{}});}
+\DoxyCodeLine{44   \textcolor{keywordtype}{bool} val = obj.initVideoStream(-\/1);}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46   EXPECT\_FALSE(val);}
+\DoxyCodeLine{47 \}}
+
+\end{DoxyCode}

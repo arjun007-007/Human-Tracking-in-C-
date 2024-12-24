@@ -1,0 +1,8 @@
+<map id="libs/detection/detection.hpp" name="libs/detection/detection.hpp">
+<area shape="rect" id="node1" title="Class Definition for DetectionClass." alt="" coords="181,5,384,32"/>
+<area shape="rect" id="node2" href="$detection_2src_8cpp.html" title="Class declaration for the DetectionClass." alt="" coords="5,80,165,107"/>
+<area shape="rect" id="node3" href="$tracking_8hpp.html" title="Class Definition for the TrackingClass." alt="" coords="189,80,376,107"/>
+<area shape="rect" id="node6" href="$test_8cpp.html" title="Declares unit tests to be run and verified using GitHub Actions It helpes in testing detection,..." alt="" coords="378,155,481,181"/>
+<area shape="rect" id="node4" href="$app_2main_8cpp.html" title="The main application of the project, will be used to test the implementation in the future." alt="" coords="66,155,177,181"/>
+<area shape="rect" id="node5" href="$tracking_2src_8cpp.html" title="Class Decleration for the TrackingClass." alt="" coords="201,155,353,181"/>
+</map>

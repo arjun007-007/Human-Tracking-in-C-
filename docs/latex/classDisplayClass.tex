@@ -1,0 +1,77 @@
+\hypertarget{classDisplayClass}{}\doxysection{Display\+Class Class Reference}
+\label{classDisplayClass}\index{DisplayClass@{DisplayClass}}
+
+
+A class for displaying object locations and additional information on the video stream.  
+
+
+
+
+{\ttfamily \#include $<$displaying.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classDisplayClass_a40727483498ea66dca66794401211d5d}\label{classDisplayClass_a40727483498ea66dca66794401211d5d}} 
+\mbox{\hyperlink{classDisplayClass_a40727483498ea66dca66794401211d5d}{Display\+Class}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classDisplayClass_a85b29b2f237f203f6b6798f86362f50f}\label{classDisplayClass_a85b29b2f237f203f6b6798f86362f50f}} 
+\mbox{\hyperlink{classDisplayClass_a85b29b2f237f203f6b6798f86362f50f}{$\sim$\+Display\+Class}} ()
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+cv\+::\+Mat \mbox{\hyperlink{classDisplayClass_a764c49f2f3f43246517914929b537ae8}{draw\+Object\+Locations}} (const cv\+::\+Mat \&frame, const std\+::vector$<$ std\+::tuple$<$ int, cv\+::\+Rect $>$$>$ \&object\+Locations)
+\begin{DoxyCompactList}\small\item\em Draws object locations and additional information on the video frame. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class for displaying object locations and additional information on the video stream. 
+
+This class provides functions to draw bounding boxes around detected objects and display additional information on top of the bounding boxes. 
+
+Definition at line 29 of file displaying.\+hpp.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDisplayClass_a764c49f2f3f43246517914929b537ae8}\label{classDisplayClass_a764c49f2f3f43246517914929b537ae8}} 
+\index{DisplayClass@{DisplayClass}!drawObjectLocations@{drawObjectLocations}}
+\index{drawObjectLocations@{drawObjectLocations}!DisplayClass@{DisplayClass}}
+\doxysubsubsection{\texorpdfstring{drawObjectLocations()}{drawObjectLocations()}}
+{\footnotesize\ttfamily cv\+::\+Mat Display\+Class\+::draw\+Object\+Locations (\begin{DoxyParamCaption}\item[{const cv\+::\+Mat \&}]{frame,  }\item[{const std\+::vector$<$ std\+::tuple$<$ int, cv\+::\+Rect $>$$>$ \&}]{object\+Locations }\end{DoxyParamCaption})}
+
+
+
+Draws object locations and additional information on the video frame. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frame} & The input video frame. \\
+\hline
+{\em object\+Locations} & Vector of tuples containing object ID, bounding box \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Modified video frame with bounding boxes and object information. 
+\end{DoxyReturn}
+
+
+Definition at line 36 of file src.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{38                                                              \{}
+\DoxyCodeLine{39   cv::Mat resultFrame = frame.clone();}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41   \textcolor{comment}{// Placeholder implementation: Add your logic here to draw object information}}
+\DoxyCodeLine{42   \textcolor{comment}{// on the frame. Loop through objectLocations and draw information on}}
+\DoxyCodeLine{43   \textcolor{comment}{// resultFrame.}}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45   \textcolor{keywordflow}{return} resultFrame;}
+\DoxyCodeLine{46 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+libs/displaying/\mbox{\hyperlink{displaying_8hpp}{displaying.\+hpp}}\item 
+libs/displaying/\mbox{\hyperlink{displaying_2src_8cpp}{src.\+cpp}}\end{DoxyCompactItemize}

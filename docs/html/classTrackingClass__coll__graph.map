@@ -1,0 +1,4 @@
+<map id="TrackingClass" name="TrackingClass">
+<area shape="rect" id="node1" title="A class for Tracking Subjects on the Frame." alt="" coords="10,95,121,121"/>
+<area shape="rect" id="node2" href="$classDetectionClass.html" title="A class for performing face detection using a deep learning model." alt="" coords="5,5,125,32"/>
+</map>

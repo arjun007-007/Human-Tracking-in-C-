@@ -1,0 +1,202 @@
+\hypertarget{classDetectionClass}{}\doxysection{Detection\+Class Class Reference}
+\label{classDetectionClass}\index{DetectionClass@{DetectionClass}}
+
+
+A class for performing face detection using a deep learning model.  
+
+
+
+
+{\ttfamily \#include $<$detection.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDetectionClass_a963e2d6c2c89ef712b9838635724d448}{Detection\+Class}} (const std\+::string \&model\+Path, const std\+::string \&config\+Path)
+\begin{DoxyCompactList}\small\item\em Constructor to initialize the \mbox{\hyperlink{classDetectionClass}{Detection\+Class}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDetectionClass_a44f6b1080d5e47694ffca2d56818d033}{$\sim$\+Detection\+Class}} ()
+\begin{DoxyCompactList}\small\item\em Destructor to release resources used by \mbox{\hyperlink{classDetectionClass}{Detection\+Class}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDetectionClass_a9062a8cba768eb5e1f5491918e9dded1}{init\+Video\+Stream}} (int device\+ID)
+\begin{DoxyCompactList}\small\item\em Initialize the video stream from the specified camera device. \end{DoxyCompactList}\item 
+std\+::vector$<$ cv\+::\+Rect $>$ \mbox{\hyperlink{classDetectionClass_a29cb0aa59929c0978935fa5deaf631ec}{detect\+Faces}} (cv\+::\+Mat \&frame)
+\begin{DoxyCompactList}\small\item\em Detect faces in the current frame obtained from the video stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+cv\+::\+Video\+Capture \mbox{\hyperlink{classDetectionClass_a7b2a529043b4da57937c90227b3e5f25}{video\+Capture}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class for performing face detection using a deep learning model. 
+
+This class initializes a face detection model and provides functions to initialize a video stream from a camera and detect faces in the frames obtained from the video stream. 
+
+Definition at line 28 of file detection.\+hpp.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classDetectionClass_a963e2d6c2c89ef712b9838635724d448}\label{classDetectionClass_a963e2d6c2c89ef712b9838635724d448}} 
+\index{DetectionClass@{DetectionClass}!DetectionClass@{DetectionClass}}
+\index{DetectionClass@{DetectionClass}!DetectionClass@{DetectionClass}}
+\doxysubsubsection{\texorpdfstring{DetectionClass()}{DetectionClass()}}
+{\footnotesize\ttfamily Detection\+Class\+::\+Detection\+Class (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{model\+Path,  }\item[{const std\+::string \&}]{config\+Path }\end{DoxyParamCaption})}
+
+
+
+Constructor to initialize the \mbox{\hyperlink{classDetectionClass}{Detection\+Class}} object. 
+
+Constructor for the \mbox{\hyperlink{classDetectionClass}{Detection\+Class}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em model\+Path} & Path to the pre-\/trained face detection model file. \\
+\hline
+{\em config\+Path} & Path to the configuration file for the model. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 20 of file src.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22     : faceDetectionModel(cv::dnn::readNet(modelPath, configPath)) \{}
+\DoxyCodeLine{23   \textcolor{comment}{// Initialize the face detection model with the provided paths}}
+\DoxyCodeLine{24 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classDetectionClass_a44f6b1080d5e47694ffca2d56818d033}\label{classDetectionClass_a44f6b1080d5e47694ffca2d56818d033}} 
+\index{DetectionClass@{DetectionClass}!````~DetectionClass@{$\sim$DetectionClass}}
+\index{````~DetectionClass@{$\sim$DetectionClass}!DetectionClass@{DetectionClass}}
+\doxysubsubsection{\texorpdfstring{$\sim$DetectionClass()}{~DetectionClass()}}
+{\footnotesize\ttfamily Detection\+Class\+::$\sim$\+Detection\+Class (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor to release resources used by \mbox{\hyperlink{classDetectionClass}{Detection\+Class}}. 
+
+Destructor for the \mbox{\hyperlink{classDetectionClass}{Detection\+Class}}. 
+
+Definition at line 29 of file src.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29 \{ \mbox{\hyperlink{classDetectionClass_a7b2a529043b4da57937c90227b3e5f25}{videoCapture}}.release(); \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDetectionClass_a29cb0aa59929c0978935fa5deaf631ec}\label{classDetectionClass_a29cb0aa59929c0978935fa5deaf631ec}} 
+\index{DetectionClass@{DetectionClass}!detectFaces@{detectFaces}}
+\index{detectFaces@{detectFaces}!DetectionClass@{DetectionClass}}
+\doxysubsubsection{\texorpdfstring{detectFaces()}{detectFaces()}}
+{\footnotesize\ttfamily std\+::vector$<$ cv\+::\+Rect $>$ Detection\+Class\+::detect\+Faces (\begin{DoxyParamCaption}\item[{cv\+::\+Mat \&}]{frame }\end{DoxyParamCaption})}
+
+
+
+Detect faces in the current frame obtained from the video stream. 
+
+\begin{DoxyReturn}{Returns}
+A vector of cv\+::\+Rect representing the detected faces\textquotesingle{} bounding boxes and draw rectangle.
+
+A vector of cv\+::\+Rect representing the detected faces\textquotesingle{} bounding boxes. 
+\end{DoxyReturn}
+
+
+Definition at line 51 of file src.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{51                                                           \{}
+\DoxyCodeLine{52   \textcolor{comment}{// Process a frame from the video stream and perform face detection}}
+\DoxyCodeLine{53   \textcolor{comment}{// Return a vector of cv::Rect representing detected faces}}
+\DoxyCodeLine{54   std::vector<cv::Rect> detectedFaces;}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56   \textcolor{comment}{// Preprocess the frame and detect faces using the ResNet face detection model}}
+\DoxyCodeLine{57   cv::Mat blob = cv::dnn::blobFromImage(frame, 1.0, cv::Size(300, 300),}
+\DoxyCodeLine{58                                         cv::Scalar(104, 117, 123));}
+\DoxyCodeLine{59   faceDetectionModel.setInput(blob);}
+\DoxyCodeLine{60   cv::Mat detections = faceDetectionModel.forward();}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62   cv::Mat detection\_matrix(detections.size[2], detections.size[3], CV\_32F,}
+\DoxyCodeLine{63                            detections.ptr<\textcolor{keywordtype}{float}>());}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65   \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < detection\_matrix.rows; i++) \{}
+\DoxyCodeLine{66     \textcolor{keywordtype}{float} confidence = detection\_matrix.at<\textcolor{keywordtype}{float}>(i, 2);}
+\DoxyCodeLine{67     \textcolor{keywordflow}{if} (confidence > confidenceThreshold) \{}
+\DoxyCodeLine{68       \textcolor{comment}{// Get normalized coordinates from the detection output}}
+\DoxyCodeLine{69       \textcolor{keywordtype}{int} x1 = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(detection\_matrix.at<\textcolor{keywordtype}{float}>(i, 3) * frame.cols);}
+\DoxyCodeLine{70       \textcolor{keywordtype}{int} y1 = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(detection\_matrix.at<\textcolor{keywordtype}{float}>(i, 4) * frame.rows);}
+\DoxyCodeLine{71       \textcolor{keywordtype}{int} x2 = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(detection\_matrix.at<\textcolor{keywordtype}{float}>(i, 5) * frame.cols);}
+\DoxyCodeLine{72       \textcolor{keywordtype}{int} y2 = \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(detection\_matrix.at<\textcolor{keywordtype}{float}>(i, 6) * frame.rows);}
+\DoxyCodeLine{73 }
+\DoxyCodeLine{74       cv::Rect faceRect(x1, y1, x2 -\/ x1, y2 -\/ y1);}
+\DoxyCodeLine{75 }
+\DoxyCodeLine{76       \textcolor{comment}{// cv::rectangle(frame, faceRect, cv::Scalar(0, 255, 0),2, 4);}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78       \textcolor{comment}{// Store the detected face's bounding box}}
+\DoxyCodeLine{79       detectedFaces.push\_back(faceRect);}
+\DoxyCodeLine{80     \}}
+\DoxyCodeLine{81   \}}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{83   \textcolor{keywordflow}{return} detectedFaces;}
+\DoxyCodeLine{84 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classDetectionClass_a9062a8cba768eb5e1f5491918e9dded1}\label{classDetectionClass_a9062a8cba768eb5e1f5491918e9dded1}} 
+\index{DetectionClass@{DetectionClass}!initVideoStream@{initVideoStream}}
+\index{initVideoStream@{initVideoStream}!DetectionClass@{DetectionClass}}
+\doxysubsubsection{\texorpdfstring{initVideoStream()}{initVideoStream()}}
+{\footnotesize\ttfamily bool Detection\+Class\+::init\+Video\+Stream (\begin{DoxyParamCaption}\item[{int}]{device\+ID }\end{DoxyParamCaption})}
+
+
+
+Initialize the video stream from the specified camera device. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em device\+ID} & Identifier of the camera device (usually 0 for the default camera). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the video stream is successfully opened, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line 37 of file src.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{37                                                  \{}
+\DoxyCodeLine{38   \textcolor{comment}{// Initialize the video stream from the specified device (camera)}}
+\DoxyCodeLine{39   \textcolor{comment}{// Return true if successfully opened, false otherwise}}
+\DoxyCodeLine{40   \textcolor{keywordflow}{if} (deviceID < 0) \{}
+\DoxyCodeLine{41     \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{42   \}}
+\DoxyCodeLine{43   \mbox{\hyperlink{classDetectionClass_a7b2a529043b4da57937c90227b3e5f25}{videoCapture}}.open(deviceID);}
+\DoxyCodeLine{44   \textcolor{keywordflow}{return} \mbox{\hyperlink{classDetectionClass_a7b2a529043b4da57937c90227b3e5f25}{videoCapture}}.isOpened();}
+\DoxyCodeLine{45 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classDetectionClass_a7b2a529043b4da57937c90227b3e5f25}\label{classDetectionClass_a7b2a529043b4da57937c90227b3e5f25}} 
+\index{DetectionClass@{DetectionClass}!videoCapture@{videoCapture}}
+\index{videoCapture@{videoCapture}!DetectionClass@{DetectionClass}}
+\doxysubsubsection{\texorpdfstring{videoCapture}{videoCapture}}
+{\footnotesize\ttfamily cv\+::\+Video\+Capture Detection\+Class\+::video\+Capture}
+
+Video capture object for accessing frames from the camera. 
+
+Definition at line 56 of file detection.\+hpp.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+libs/detection/\mbox{\hyperlink{detection_8hpp}{detection.\+hpp}}\item 
+libs/detection/\mbox{\hyperlink{detection_2src_8cpp}{src.\+cpp}}\end{DoxyCompactItemize}

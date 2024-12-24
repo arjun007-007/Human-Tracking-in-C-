@@ -1,0 +1,147 @@
+\hypertarget{app_2main_8cpp}{}\doxysection{app/main.cpp File Reference}
+\label{app_2main_8cpp}\index{app/main.cpp@{app/main.cpp}}
+
+
+The main application of the project, will be used to test the implementation in the future.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$opencv2/imgcodecs.\+hpp$>$}\newline
+{\ttfamily \#include \char`\"{}tracking.\+hpp\char`\"{}}\newline
+Include dependency graph for main.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{app_2main_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{app_2main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\begin{DoxyCompactList}\small\item\em The main method of the file used to test and check whether the library works as intended. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The main application of the project, will be used to test the implementation in the future. 
+
+\begin{DoxyAuthor}{Author}
+Lowell Lobo 
+
+Mayank Deshpande 
+
+Kautilya Chappidi 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2023-\/10-\/24
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2023 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{app_2main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{app_2main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The main method of the file used to test and check whether the library works as intended. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+variables used to get the natural configuration of camera and car
+
+Initialise a tracker class to be used for tracking obstacles
+
+Initialise the video
+
+Initialise a frame
+
+Get detections and store in variable rectangles
+
+Assign IDs to the detections
+
+Find distance from camera frame
+
+Find distance from car frame in inches
+
+Draw rectangles for the detections and the distances
+
+Display the frame
+
+Definition at line 25 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{25            \{}
+\DoxyCodeLine{30   \textcolor{keywordtype}{double} x, y, z, th, tv;}
+\DoxyCodeLine{31   std::cout << \textcolor{stringliteral}{"{}Enter x offset distance in inches: "{}};}
+\DoxyCodeLine{32   std::cin >> x;}
+\DoxyCodeLine{33   std::cout << std::endl << \textcolor{stringliteral}{"{}Enter y offset distance in inches: "{}};}
+\DoxyCodeLine{34   std::cin >> y;}
+\DoxyCodeLine{35   std::cout << std::endl << \textcolor{stringliteral}{"{}Enter z offset distance in inches: "{}};}
+\DoxyCodeLine{36   std::cin >> z;}
+\DoxyCodeLine{37   std::cout << std::endl << \textcolor{stringliteral}{"{}Enter horizontal field of view angle in radians: "{}};}
+\DoxyCodeLine{38   std::cin >> th;}
+\DoxyCodeLine{39   std::cout << std::endl << \textcolor{stringliteral}{"{}Enter vertical field of view angle in radians: "{}};}
+\DoxyCodeLine{40   std::cin >> tv;}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{46   \mbox{\hyperlink{classTrackingClass}{TrackingClass}} tracker(\textcolor{stringliteral}{"{}models/res10\_300x300\_ssd\_iter\_140000\_fp16.caffemodel"{}},}
+\DoxyCodeLine{47                         \textcolor{stringliteral}{"{}models/deploy.prototxt"{}}, x, y, z, th, tv);}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{53   \textcolor{keywordflow}{if} (!tracker.image.initVideoStream(0)) \{}
+\DoxyCodeLine{54     \textcolor{keywordflow}{return} 0;}
+\DoxyCodeLine{55   \}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{61   cv::Mat frame;}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63   \textcolor{keywordflow}{while} (\textcolor{keyword}{true}) \{}
+\DoxyCodeLine{64     tracker.image.videoCapture >> frame;}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{70     \textcolor{keyword}{auto} rectangles = tracker.image.detectFaces(frame);}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{76     tracker.obstacleMapVector = tracker.assignIDAndTrack(rectangles);}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{82     \textcolor{keyword}{auto} cameraDistance = tracker.distFromCamera(frame.cols, frame.rows);}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{88     \textcolor{keyword}{auto} carDistance = tracker.distFromCar(cameraDistance);}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{90     cv::Scalar color(0, 105, 205);}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{96     \textcolor{keywordflow}{for} (\textcolor{keyword}{const} \textcolor{keyword}{auto}\& r : tracker.obstacleMapVector) \{}
+\DoxyCodeLine{97       cv::rectangle(frame, r.second, color, 4);}
+\DoxyCodeLine{98       cv::putText(frame,}
+\DoxyCodeLine{99                   std::to\_string(r.first) + \textcolor{stringliteral}{"{}: ("{}} +}
+\DoxyCodeLine{100                       std::to\_string(}
+\DoxyCodeLine{101                           \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(std::get<0>(carDistance[r.first]))) +}
+\DoxyCodeLine{102                       \textcolor{stringliteral}{"{}, "{}} +}
+\DoxyCodeLine{103                       std::to\_string(}
+\DoxyCodeLine{104                           \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(std::get<1>(carDistance[r.first]))) +}
+\DoxyCodeLine{105                       \textcolor{stringliteral}{"{}, "{}} +}
+\DoxyCodeLine{106                       std::to\_string(}
+\DoxyCodeLine{107                           \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(std::get<2>(carDistance[r.first]))) +}
+\DoxyCodeLine{108                       \textcolor{stringliteral}{"{})"{}},}
+\DoxyCodeLine{109                   cv::Point(r.second.x, r.second.y -\/ 5),}
+\DoxyCodeLine{110                   cv::FONT\_HERSHEY\_COMPLEX, 1.0, CV\_RGB(255, 0, 0), 2);}
+\DoxyCodeLine{111     \}}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{117     imshow(\textcolor{stringliteral}{"{}Image"{}}, frame);}
+\DoxyCodeLine{118     \textcolor{keywordtype}{int} esc\_key = 27;}
+\DoxyCodeLine{119     \textcolor{keywordflow}{if} (cv::waitKey(10) == esc\_key) \{}
+\DoxyCodeLine{120       \textcolor{keywordflow}{break};}
+\DoxyCodeLine{121     \}}
+\DoxyCodeLine{122   \}}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124   cv::destroyAllWindows();}
+\DoxyCodeLine{125 \}}
+
+\end{DoxyCode}
